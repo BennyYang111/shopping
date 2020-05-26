@@ -1,0 +1,13 @@
+.item-img {
+  width: 300px;
+  border: gray solid 1px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.well {
+  border-radius: 4px;
+  padding: 25px;
+  border: 1px solid lightgray;
+  margin: 25px;
+}
