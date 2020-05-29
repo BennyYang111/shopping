@@ -1,11 +1,14 @@
 <?php
   if(!isset($_SESSION['buyer_ID'])) {
     echo '還未登入喔!<br>';
+  } elseif($_SESSION['form_quantity'] == 0) {
+    echo '購物車中無商品!';
   } else {
     require_once "../method/connect.php";
   
+    $ID = $_SESSION['ID'];
     $buyer_ID = $_SESSION['buyer_ID'];
-    $sql = "SELECT * FROM form WHERE buyer_ID='$buyer_ID'";
+    $sql = "SELECT * FROM purchase_record WHERE buyer_ID='$buyer_ID' AND ID >= '$ID'";
     $result = $connect->query($sql);
 
     //列出購買紀錄
@@ -22,7 +25,7 @@
     } else {
       echo '無購買紀錄!<br>';
     }
-    echo '</tr></table></font>';
+    echo '</tr></table>';
   }
 
 ?>

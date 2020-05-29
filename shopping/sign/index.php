@@ -1,8 +1,10 @@
 <?php
+  //使用session前要有的start
   session_start();
-  if(isset($_SESSION['buyer_ID'])) {
-    echo '<br>已經登入過了喔' . $_SESSION['buyer_ID'] . '!<br>';
-    header("Refresh:2; url=../index.php");
+  //判斷$_SESSION['buyer_ID']有沒有人登入
+  if(!isset($_SESSION['buyer_ID'])){
+  } else {
+    echo '<font size="5">使用者:' . $_SESSION['buyer_ID'] . '</font>';
   }
 ?>
 
@@ -11,7 +13,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>登入帳號</title>
+  <title>註冊帳號</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,14 +33,39 @@
 
   <script>
     function submit() {
+      let name = document.getElementById('input-name');
       let account = document.getElementById('input-account');
       let code = document.getElementById('input-code');
+      let phone = document.getElementById('input-phone');
+      let email = document.getElementById('input-email');
       let error4 = document.getElementById('error-msg4');
+      let error1 = document.getElementById('error-msg1');
+      let error2 = document.getElementById('error-msg2');
+      let error3 = document.getElementById('error-msg3');
       let error5 = document.getElementById('error-msg5');
 
-      if (account.value != "" && code.value != "") {
-        location.href = "login.php";
-        alert('送出成功!!');
+      if (name.value != "" && phone.value != "" && email.value != "" && account.value != "" && code.value != "") {
+        location.href = "login/login.html";
+        alert('感謝您的註冊!!');
+      }
+
+      if (name.value == "") {
+        error1.innerHTML = "<h6>※姓名不可為空白</h6>";
+      }
+      else {
+        error1.innerHTML = "";
+      }
+      if (phone.value == "") {
+        error2.innerHTML = "<h6>※手機不可為空白</h6>";
+      }
+      else {
+        error2.innerHTML = "";
+      }
+      if (email.value == "") {
+        error3.innerHTML = "<h6>※信箱不可為空白</h6>";
+      }
+      else {
+        error3.innerHTML = "";
       }
       if (account.value == "") {
         error4.innerHTML = "<h6>※帳號不可為空白</h6>";
@@ -81,7 +108,7 @@
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="../sign/index.php">註冊</a>
+                  <a class="nav-link" href="index.php">註冊</a>
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
@@ -94,7 +121,7 @@
               </ul>
             </div>
             <div class="user-login-info">
-              <a href="index.php"><img src="../img/user.svg" wight="30" height="30" alt=""></a>
+              <a href="../login/index.php"><img src="../img/user.svg" wight="30" height="30" alt=""></a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="../car/index.php"><img src="../img/bag.svg" wight="30" height="30" alt=""></a>
             </div>
@@ -103,13 +130,28 @@
       </div>
     </div>
   </header>
+
   <center>
-    <h1 class="title">登入 777購物網站帳號</h1>
+    <h1 class="title">註冊 777購物網站帳號</h1>
   </center>
-  <form class="" action="login.php" method="post">
+
+  <form class="" action="sign.php" method="post">
     <div class="box">
       <div class="box-head">
-        <h3>輸入帳號密碼</h3>
+        <h3>用戶基本資料</h3>
+      </div>
+      <div class="well">
+        <a>姓名:</a>
+        <input type="text" id="input-name" name="name" class="form-control" style="width: 400px;" placeholder="請填入真實姓名">
+        <a>地址:</a>
+        <input type="text" id="input-name" name="address" class="form-control" style="width: 400px;"
+          placeholder="請填入地址">
+        <small id="error-msg1" style="color: red;"></small>
+        <small id="error-msg2" style="color: red;"></small>
+        <small id="error-msg3" style="color: red;"></small>
+      </div>
+      <div class="box-head">
+        <h3>設定帳號密碼</h3>
       </div>
       <div class="well">
         <a>帳號:</a>
@@ -118,17 +160,18 @@
         <a>密碼:</a>
         <input type="password" id="input-code" name="password" class="form-control" style="width: 400px;"
           placeholder="輸入密碼">
+        <a>再次輸入密碼:</a>
+        <input type="password" id="input-code" name="pwcheck" class="form-control" style="width: 400px;"
+          placeholder="再次輸入密碼">
         <small id="error-msg4" style="color: red;"></small>
         <small id="error-msg5" style="color: red;"></small>
       </div>
-
     </div>
     <center>
       <button type="button" class="btn btn-primary" onclick="location.href='../index.php'">回到首頁</button>
-      <button type="button" class="btn btn-primary" onclick="submit()">登入</button>
+      <button type="button" class="btn btn-primary" onclick="submit()">送出</button>
     </center>
-  </form>
-  <br><br><br>
+  </form><br><br><br>
 
   <footer class="footer_area clearfix">
     <div class="container">
@@ -136,7 +179,7 @@
         <div class="col-12 col-md-6">
           <div class="single_widget_area d-flex mb-30">
             <div class="footer-logo mr-50">
-              <a href="#"><img src="../img/777.jpg" wight="100" height="100" alt=""></a>
+              <a href="../index.php"><img src="../img/777.jpg" wight="100" height="100" alt=""></a>
             </div>
             <div class="footer_menu">
               <ul>
@@ -153,6 +196,7 @@
       </div>
     </div>
   </footer>
+
 </body>
 
 <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"

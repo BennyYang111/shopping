@@ -19,7 +19,7 @@
     <a>輸入銀行代號: </a><input type="text" name="bcode" value="" placeholder="輸入銀行代號">
     <a>輸入銀行帳戶: </a><input type="text" name="baccount" value="" placeholder="輸入銀行帳戶"><br>
     <input type="submit" name="MyHead" value="註冊"><br><br>
-    <a class="" href="../index.php" role="button">Home</a>
+    <a class="" href="../system.php" role="button">Home</a>
   </form>
 </body>
 

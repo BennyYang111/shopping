@@ -1,6 +1,14 @@
 <?php
-  //使用session前要有的start
+  require_once "../../method/connect.php";
+  $sql = "SELECT * FROM stock WHERE item_name='computer1'";
+  $result = $connect->query($sql);
+  $row = $result->fetch_assoc();
   session_start();
+  $_SESSION['item'] = 'computer1';
+  $quantity = $row['quantity'];
+  $seller = $row['seller_name'];
+  $_SESSION['seller'] = $seller;
+
   //判斷$_SESSION['buyer_ID']有沒有人登入
   if(!isset($_SESSION['buyer_ID'])){
   } else {
@@ -27,9 +35,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/bitnami.css">
-
+  <script src="../../js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../css/bitnami.css">
+  <link rel="stylesheet" href="../../css/commodity.css">
 </head>
 
 <body>
@@ -39,7 +47,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.php"> <img src="img/777.jpg" width="250"
+            <a class="navbar-brand" href="../../index.php"> <img src="../../img/777.jpg" width="250"
                 class="heading img-fluid"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,104 +57,106 @@
             <div class="collapse navbar-collapse main-menu-item justify-content-center" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.php">首頁</a>
+                  <a class="nav-link" href="../../index.php">首頁</a>
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="item/index.php">所有商品</a>
+                  <a class="nav-link" href="../../item/index.php">所有商品</a>
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="sign/index.php">註冊</a>
+                  <a class="nav-link" href="../../sign/index.php">註冊</a>
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="method/logout.php">登出</a>
+                  <a class="nav-link" href="../../method/logout.php">登出</a>
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="purchase_record/index.php">查看訂單</a>
+                  <a class="nav-link" href="../../purchase_record/index.php">查看訂單</a>
                 </li>
               </ul>
             </div>
             <div class="user-login-info">
-              <a href="login/index.php"><img src="img/user.svg" wight="30" height="30" alt=""></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="car/index.php"><img src="img/bag.svg" wight="30" height="30" alt=""></a>
+              <a href="../../login/index.php"><img src="../../img/user.svg" wight="30" height="30" alt=""></a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="../../car/index.php"><img src="../../img/bag.svg" wight="30" height="30" alt=""></a>
             </div>
           </nav>
         </div>
       </div>
     </div>
   </header>
+
   <br>
   <br>
   <br>
-  <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-1.jpg);">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div class="col-12">
-          <div class="hero-content">
-            <h1>新品到貨</h1>
-            <a href="item/index.php" class="btn essence-btn">立即查看</a>
+  <div role="main" class="container1">
+    <div class="product-briefing flex card _2cRTS4">
+      <br>
+      <center>
+        <div class="qaNIZv">
+          <span>【777電腦系列】 筆記型電腦 迷霧黑</span>
+        </div>
+        <br>
+        <div class="flex items-center">
+          <div class="_3n5NQx" style="font-size: 30px;">$23,000</div>
+        </div>
+      </center>
+      <center>
+        <div class="_1anaJP">
+          <img src="../../img/nb-1.jpg" class=" item-img img-fluid" alt="">
+        </div>
+      </center>
+      <center>
+        <div class="flex items-center _1FzU2Y">
+          <div class="_2C2YFD">
+            <div class="kP-bM3" style="font-size: 30px;">商品規格: </div>
+            <div class="_2aZyWI">
+              <div class="kIo6pj" style="font-size: 20px;">型號 : UX481FL
+              </div>
+              <div class="kIo6pj" style="font-size: 20px;">品牌 : ASUS</div>
+              <div class="kIo6pj" id='stock' style="font-size: 20px;">庫存 : <?php echo $quantity; ?></div>
+            </div>
           </div>
         </div>
-      </div>
+        <form class="" action="../order.php" method="post">
+          <br><a>請問要購買數量： </a><input type="number" name="quantity" value="" placeholder="輸入需要數量"><br><br>
+          <input type="submit" name="MyHead" value="加入購物車">
+        </form>
+      </center>
+
+      <br><br>
     </div>
-  </section>
-  <br>
-  <br>
-  <br>
+  </div>
   <br>
   <br>
 
-  <div class="top_catagory_area section-padding-80 clearfix">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
-            style="background-image: url(img/cloth.jpg);">
-            <div class="catagory-content">
-              <a href="item/clothes/index.php">衣著</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
-            style="background-image: url(img/bg-3.jpg);">
-            <div class="catagory-content">
-              <a href="item/shoes/index.php">鞋子</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
-            style="background-image: url(img/3C.jpg);">
-            <div class="catagory-content">
-              <a href="item/3C/index.php">3C產品</a>
-            </div>
-          </div>
-        </div>
+  <div class="product-briefing flex card _2cRTS4">
+    <div class="_1zBnTu page-product__shop">
+      <div class="_1Sw6Er">
+        <span>賣家名稱 : <?php echo $seller; ?></span>
       </div>
     </div>
   </div>
-
+  <br>
+  <br>
   <footer class="footer_area clearfix">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6">
           <div class="single_widget_area d-flex mb-30">
             <div class="footer-logo mr-50">
-              <a href="index.php"><img src="img/777.jpg" wight="100" height="100" alt=""></a>
+              <a href="../../index.php"><img src="../../img/777.jpg" wight="100" height="100" alt=""></a>
             </div>
             <div class="footer_menu">
               <ul>
-                <li><a href="item/index.php">所有商品</a></li>
-                <li><a href="sign/index.php">註冊</a></li>
+                <li><a href="../../item/index.php">所有商品</a></li>
+                <li><a href="../../sign/index.php">註冊</a></li>
               </ul>
               <ul>
-                <li><a href="purchase_record/index.php">查看訂單</a></li>
-                <li><a href="login/index.php">登入</a></li>
+                <li><a href="../../purchase_record/index.php">查看訂單</a></li>
+                <li><a href="../../login/index.php">登入</a></li>
               </ul>
             </div>
           </div>
@@ -155,9 +165,9 @@
     </div>
   </footer>
 </body>
+
 <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"
     aria-hidden="true">
   </i></a>
 
 </html>
-

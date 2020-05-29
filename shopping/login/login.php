@@ -14,14 +14,18 @@
       session_start();
       $_SESSION['buyer_ID'] = $ID;
       $_SESSION['form_quantity'] = 0;
-      echo $ID . '登入成功!';
+      echo '<font size="10">' . $ID . '登入成功!</font>';
+      echo '<br><font size="10">等待畫面跳轉...</font>';
+      header("Refresh:1; url=../index.php");
     } else {
-      echo '帳號或密碼錯誤!';
+      echo '<font size="10">帳號或密碼錯誤!</font>';
+      echo '<br><font size="10">等待畫面跳轉...</font>';
+      header("Refresh:1; url=index.php");
     }
   } else {
-    echo '無此帳號!';
+    echo '<font size="10">無此帳號!</font>';
+    echo '<br><font size="10">等待畫面跳轉...</font>';
+    header("Refresh:1; url=index.php");
   }
-  echo '<br>等待畫面跳轉~~';
-  header("Refresh:1; url=../index.php");
   
 ?>

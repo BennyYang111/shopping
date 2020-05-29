@@ -1,29 +1,30 @@
 <form>
-  <a class="" href="../index.php" role="button">Home</a>
-</form>
+  <font size="10">
+    <a class="" href="../index.php" role="button">按此回到主頁</a>
+  </font>
+  </form>
 
 <?php
   require_once "../method/connect.php";
 
   $pay = $_POST['pay'];
-
-  //用session前要有的函式
+  
   session_start();
   if(!isset($_SESSION['buyer_ID'])) {
-    echo '請先登入喔~~<br>';
-    echo '等待畫面跳轉~~';
+    echo '<font size="10">還未登入喔!</font><br>';
+    echo '<font size="10">等待畫面跳轉...</font>';
     header("Refresh:1; url=../index.php");
   } elseif(isset($_SESSION['buyer_ID']) && $_SESSION['form_quantity'] == 0) {
-    echo '無商品可供下單!<br>';
-    echo '等待畫面跳轉~~';
+    echo '<font size="10">無商品可供下單!<br>';
+    echo '等待畫面跳轉...</font>';
     header("Refresh:1; url=../index.php");
-  } elseif($_POST['pay'] == '' || $pay == 'card' || $_POST['address'] == '') {
+  } elseif($_POST['pay'] == '' || ($pay == 'card' && $_POST['number'] == '') || $_POST['address'] == '') {
     if($_POST['number'] == '') {
-      echo '付款方式或地址或信用卡號不可為空白!<br>';
+      echo '<font size="10">付款方式或地址或信用卡號不可為空白!</font><br>';
     } else {
-      echo '付款方式或地址不可為空白!<br>';
+      echo '<font size="10">付款方式或地址不可為空白!</font><br>';
     }
-    echo '等待畫面跳轉~~';
+    echo '<font size="10">等待畫面跳轉...</font>';
     header("Refresh:1; url=index.php");
   } else {
 
@@ -66,20 +67,28 @@
       if($pay == 'atm') {
         if(!isset($_SESSION['seller_1'])) {
           $_SESSION['seller_1'] = $seller_name;
-          echo '第一位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
-            ' 銀行代號: ' . $srow['bank_code'] . '<br>';
+          echo '<font size="10">第一位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
+            ' 銀行代號: ' . $srow['bank_code'] . '</font><br>';
         } elseif(isset($_SESSION['seller_1']) && $_SESSION['seller_1'] != $seller_name && !isset($_SESSION['seller_2'])) {
           $_SESSION['seller_2'] = $seller_name;
-          echo '第二位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
-            ' 銀行代號: ' . $srow['bank_code'] . '<br>';
+          echo '<font size="10">第二位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
+            ' 銀行代號: ' . $srow['bank_code'] . '</font><br>';
         } elseif(isset($_SESSION['seller_1']) && $_SESSION['seller_1'] != $seller_name && isset($_SESSION['seller_2']) && $_SESSION['seller_2'] != $seller_name && !isset($_SESSION['seller_3'])) {
           $_SESSION['seller_3'] = $seller_name;
-          echo '第三位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
-          ' 銀行代號: ' . $srow['bank_code'] . '<br>';
+          echo '<font size="10">第三位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
+          ' 銀行代號: ' . $srow['bank_code'] . '</font><br>';
         } elseif(isset($_SESSION['seller_1']) && $_SESSION['seller_1'] != $seller_name && isset($_SESSION['seller_2']) && $_SESSION['seller_2'] != $seller_name && isset($_SESSION['seller_3']) && $_SESSION['seller_3'] != $seller_name && !isset($_SESSION['seller_4'])) {
           $_SESSION['seller_4'] = $seller_name;
-          echo '第四位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
-          ' 銀行代號: ' . $srow['bank_code'] . '<br>';
+          echo '<font size="10">第四位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
+          ' 銀行代號: ' . $srow['bank_code'] . '</font><br>';
+        } elseif(isset($_SESSION['seller_1']) && $_SESSION['seller_1'] != $seller_name && isset($_SESSION['seller_2']) && $_SESSION['seller_2'] != $seller_name && isset($_SESSION['seller_3']) && $_SESSION['seller_3'] != $seller_name && isset($_SESSION['seller_4']) && $_SESSION['seller_4'] != $seller_name && !isset($_SESSION['seller_5'])) {
+          $_SESSION['seller_5'] = $seller_name;
+          echo '<font size="10">第五位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
+          ' 銀行代號: ' . $srow['bank_code'] . '</font><br>';
+        } elseif(isset($_SESSION['seller_1']) && $_SESSION['seller_1'] != $seller_name && isset($_SESSION['seller_2']) && $_SESSION['seller_2'] != $seller_name && isset($_SESSION['seller_3']) && $_SESSION['seller_3'] != $seller_name && isset($_SESSION['seller_4']) && $_SESSION['seller_4'] != $seller_name && isset($_SESSION['seller_5']) && $_SESSION['seller_5'] != $seller_name && !isset($_SESSION['seller_6'])) {
+          $_SESSION['seller_6'] = $seller_name;
+          echo '<font size="10">第六位賣家姓名: ' . $seller_name . '<br>請轉帳到' . $srow['bank_account'] . 
+          ' 銀行代號: ' . $srow['bank_code'] . '</font><br>';
         }
       }
       
@@ -101,15 +110,17 @@
       $insertresult = $connect->query($insertSql);
       if($i == $_SESSION['form_quantity'] - 1) {
         if($insertresult) {
-          echo '成功下單!<br>';
+          echo '<font size="10">成功下單!</font><br>';
           if($pay == 'atm') {
             unset($_SESSION['seller_1']);
             unset($_SESSION['seller_2']);
             unset($_SESSION['seller_3']);
             unset($_SESSION['seller_4']);
+            unset($_SESSION['seller_5']);
+            unset($_SESSION['seller_6']);
           }
         } else {
-          echo '下單失敗!<br>';
+          echo '<font size="10">下單失敗!</font><br>';
         }
       }
 
@@ -120,10 +131,11 @@
       }
       if($i == $_SESSION['form_quantity'] - 1){
         if($insertresult && $delresult) {
-          echo '已更新庫存數量!<br>';
+          echo '<font size="10">已更新庫存數量!</font><br>';
           $_SESSION['form_quantity'] = 0;
+          unset($_SESSION['ID']);
         } else {
-          echo '更新庫存失敗!<br>';
+          echo '<font size="10">更新庫存失敗!</font><br>';
         }
       }
       
