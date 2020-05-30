@@ -111,6 +111,8 @@
       if($i == $_SESSION['form_quantity'] - 1) {
         if($insertresult) {
           echo '<font size="10">成功下單!</font><br>';
+          $_SESSION['form_quantity'] = 0;
+          unset($_SESSION['ID']);
           if($pay == 'atm') {
             unset($_SESSION['seller_1']);
             unset($_SESSION['seller_2']);
@@ -123,22 +125,6 @@
           echo '<font size="10">下單失敗!</font><br>';
         }
       }
-
-      //更新庫存
-      $delSql = "UPDATE stock SET quantity=quantity-'$quantity' WHERE item_ID='$item_ID'";
-      if($insertresult) {
-        $delresult = $connect->query($delSql);
-      }
-      if($i == $_SESSION['form_quantity'] - 1){
-        if($insertresult && $delresult) {
-          echo '<font size="10">已更新庫存數量!</font><br>';
-          $_SESSION['form_quantity'] = 0;
-          unset($_SESSION['ID']);
-        } else {
-          echo '<font size="10">更新庫存失敗!</font><br>';
-        }
-      }
-      
     }
   }
 

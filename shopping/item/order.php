@@ -96,6 +96,21 @@
       echo '<font size="10">商品放入購物車失敗!</font><br>';
       $false = 1;
     }
+
+    //更新庫存
+    $delSql = "UPDATE stock SET quantity=quantity-'$quantity' WHERE item_ID='$item_ID'";
+    if($recordresult) {
+      $delresult = $connect->query($delSql);
+    }
+    if($i == $_SESSION['form_quantity'] - 1){
+      if($recordresult && $delresult) {
+        //echo '<font size="10">已更新庫存數量!</font><br>';
+        
+      } else {
+        //echo '<font size="10">更新庫存失敗!</font><br>';
+      }
+    }
+
     echo '<font size="10">等待畫面跳轉...</font>';
     if($false == 1){
       if($_SESSION['item'] == 'computer1'){
@@ -136,7 +151,6 @@
         header("Refresh:1; url=clothes/cloth6.php");
       }
     }
-    unset($_SESSION['item']);
     unset($_SESSION['seller']);
   }
 

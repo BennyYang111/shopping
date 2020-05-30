@@ -1,10 +1,10 @@
 <?php
   require_once "../../method/connect.php";
-  $sql = "SELECT * FROM stock WHERE item_name='computer5'";
+  $sql = "SELECT * FROM stock WHERE item_name='【777電腦系列】 筆記型電腦 白金'";
   $result = $connect->query($sql);
   $row = $result->fetch_assoc();
   session_start();
-  $_SESSION['item'] = 'computer5';
+  $_SESSION['item'] = '【777電腦系列】 筆記型電腦 白金';
   $quantity = $row['quantity'];
   $seller = $row['seller_name'];
   $_SESSION['seller'] = $seller;

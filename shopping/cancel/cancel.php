@@ -46,11 +46,11 @@
     }*/
 
     //刪除購物紀錄
-    /*$del_recordsql = "DELETE FROM purchase_record WHERE ID='$ID'";
+    $del_recordsql = "DELETE FROM purchase_record WHERE ID='$ID'";
     if($result && $del_formresult && $del_stockresult) {
       $del_recordresult = $connect->query($del_recordsql);
     }
-    if($del_recordresult) {
+    /*if($del_recordresult) {
       echo '<font size="10">成功刪除購物紀錄!</font><br>';
     } else {
       echo '<font size="10">刪除購物紀錄失敗!</font><br>';

@@ -7,12 +7,20 @@
   $password = $_POST["password"];
   $pwcheck = $_POST["pwcheck"];
 
+  $searsql = "SELECT * FROM buyer WHERE buyer_ID='$ID'";
+  $searresult = $connect->query($searsql);
+  $searrow = $searresult->fetch_assoc();
+
   //註冊
   $sql = "INSERT INTO buyer(buyer_ID, buyer_name, buyer_address, password)
     VALUES ('$ID', '$name', '$address', '$password')";
     
   if($pwcheck != $password) {
     echo '<font size="10">密碼確認失敗!</font><br>';
+    echo '<font size="10">等待畫面跳轉...</font>';
+    header("Refresh:1; url=index.php");
+  } elseif($ID == $searrow['buyer_ID']) {
+    echo '<font size="10">此帳號已有人使用!</font><br>';
     echo '<font size="10">等待畫面跳轉...</font>';
     header("Refresh:1; url=index.php");
   } elseif($ID != '' && $name != '' && $address != '' && $password != '' && $pwcheck != '') {

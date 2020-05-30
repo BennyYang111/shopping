@@ -1,10 +1,10 @@
 <?php
   require_once "../../method/connect.php";
-  $sql = "SELECT * FROM stock WHERE item_name='shoes5'";
+  $sql = "SELECT * FROM stock WHERE item_name='【777鞋子系列】 VANS OLD SKOOL PRO基本款'";
   $result = $connect->query($sql);
   $row = $result->fetch_assoc();
   session_start();
-  $_SESSION['item'] = 'shoes5';
+  $_SESSION['item'] = '【777鞋子系列】 VANS OLD SKOOL PRO基本款';
   $quantity = $row['quantity'];
   $seller = $row['seller_name'];
   $_SESSION['seller'] = $seller;

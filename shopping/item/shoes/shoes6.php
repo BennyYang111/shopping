@@ -1,10 +1,10 @@
 <?php
   require_once "../../method/connect.php";
-  $sql = "SELECT * FROM stock WHERE item_name='shoes6'";
+  $sql = "SELECT * FROM stock WHERE item_name='【777鞋子系列】 PUMA 休閒鞋 Turin II'";
   $result = $connect->query($sql);
   $row = $result->fetch_assoc();
   session_start();
-  $_SESSION['item'] = 'shoes6';
+  $_SESSION['item'] = '【777鞋子系列】 PUMA 休閒鞋 Turin II';
   $quantity = $row['quantity'];
   $seller = $row['seller_name'];
   $_SESSION['seller'] = $seller;
@@ -111,7 +111,7 @@
           <div class="_2C2YFD">
             <div class="kP-bM3" style="font-size: 30px;">商品規格: </div>
             <div class="_2aZyWI">
-              <div class="kIo6pj" style="font-size: 20px;">尺碼 : 5 ~ 7
+              <div class="kIo6pj" style="font-size: 20px;">尺碼 : 6.5
               </div>
               <div class="kIo6pj" style="font-size: 20px;">品牌 : PUMA</div>
               <div class="kIo6pj" id='stock' style="font-size: 20px;">庫存 : <?php echo $quantity; ?></div>

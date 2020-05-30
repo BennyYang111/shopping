@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(isset($_SESSION['buyer_ID'])) {
-    echo '<br>已經登入過了喔' . $_SESSION['buyer_ID'] . '!<br>';
+    echo '<br><font size="5">已經登入過了喔!' . $_SESSION['buyer_ID'] . '!</font><br>';
     header("Refresh:2; url=../index.php");
   }
 ?>

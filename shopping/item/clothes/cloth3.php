@@ -1,10 +1,10 @@
 <?php
   require_once "../../method/connect.php";
-  $sql = "SELECT * FROM stock WHERE item_name='cloth3'";
+  $sql = "SELECT * FROM stock WHERE item_name='【777衣服系列】 T-shirt adidas'";
   $result = $connect->query($sql);
   $row = $result->fetch_assoc();
   session_start();
-  $_SESSION['item'] = 'cloth3';
+  $_SESSION['item'] = '【777衣服系列】 T-shirt adidas';
   $quantity = $row['quantity'];
   $seller = $row['seller_name'];
   $_SESSION['seller'] = $seller;
@@ -111,7 +111,7 @@
           <div class="_2C2YFD">
             <div class="kP-bM3" style="font-size: 30px;">商品規格: </div>
             <div class="_2aZyWI">
-              <div class="kIo6pj" style="font-size: 20px;">尺寸 : S ~ L
+              <div class="kIo6pj" style="font-size: 20px;">尺寸 : S
               </div>
               <div class="kIo6pj" style="font-size: 20px;">品牌 : adidas</div>
               <div class="kIo6pj" id='stock' style="font-size: 20px;">庫存 : <?php echo $quantity; ?></div>
