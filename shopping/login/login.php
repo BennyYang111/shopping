@@ -17,7 +17,7 @@
       echo '<font size="10">' . $ID . '登入成功!</font>';
       echo '<br><font size="10">等待畫面跳轉...</font>';
       header("Refresh:1; url=../index.php");
-    } else {
+    } else {  
       echo '<font size="10">帳號或密碼錯誤!</font>';
       echo '<br><font size="10">等待畫面跳轉...</font>';
       header("Refresh:1; url=index.php");

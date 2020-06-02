@@ -39,7 +39,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.php"> <img src="img/777.jpg" width="250"
+            <a class="navbar-brand" href="index.php"> <img src="img/7777.jpg" width="250"
                 class="heading img-fluid"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +82,7 @@
   <br>
   <br>
   <br>
-  <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-1.jpg);">
+  <section class="welcome_area bg-img background-overlay img-fluid" style="background-image: url(img/bg-1.jpg);">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12">
@@ -137,7 +137,7 @@
         <div class="col-12 col-md-6">
           <div class="single_widget_area d-flex mb-30">
             <div class="footer-logo mr-50">
-              <a href="index.php"><img src="img/777.jpg" wight="100" height="100" alt=""></a>
+              <a href="index.php"><img src="img/7777.jpg" wight="100" height="100" alt=""></a>
             </div>
             <div class="footer_menu">
               <ul>
@@ -156,7 +156,7 @@
   </footer>
 </body>
 <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"
-    aria-hidden="true">
+    aria-hidden="true"><img src="img/top.jpg" width="250" class="heading img-fluid">
   </i></a>
 
 </html>

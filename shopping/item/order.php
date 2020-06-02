@@ -16,7 +16,7 @@
     
     if($quantity > $stockrow['quantity']){
       echo '<font size="10">您的訂購數量已超出庫存!</font><br>';
-      header("Refresh:1; url=nb1.php");
+      $false = 1;
     }
 
     //找出purchase_record裡面ID的對大值
@@ -113,41 +113,41 @@
 
     echo '<font size="10">等待畫面跳轉...</font>';
     if($false == 1){
-      if($_SESSION['item'] == 'computer1'){
+      if($_SESSION['item'] == '【777電腦系列】 筆記型電腦 迷霧黑'){
         header("Refresh:1; url=3C/nb1.php");
-      } elseif($_SESSION['item'] == 'computer2'){
+      } elseif($_SESSION['item'] == '【777電腦系列】 筆記型電腦 冰河藍'){
         header("Refresh:1; url=3C/nb2.php");
-      } elseif($_SESSION['item'] == 'computer3'){
+      } elseif($_SESSION['item'] == '【777電腦系列】 筆記型電腦 灰'){
         header("Refresh:1; url=3C/nb3.php");
-      } elseif($_SESSION['item'] == 'computer4'){
+      } elseif($_SESSION['item'] == '【777電腦系列】 筆記型電腦 銀'){
         header("Refresh:1; url=3C/nb4.php");
-      } elseif($_SESSION['item'] == 'computer5'){
+      } elseif($_SESSION['item'] == '【777電腦系列】 筆記型電腦 白金'){
         header("Refresh:1; url=3C/nb5.php");
-      } elseif($_SESSION['item'] == 'computer6'){
+      } elseif($_SESSION['item'] == '【777電腦系列】 筆記型電腦 銀灰'){
         header("Refresh:1; url=3C/nb6.php");
-      } elseif($_SESSION['item'] == 'shoes1'){
+      } elseif($_SESSION['item'] == '【777鞋子系列】 帆布鞋 converse 奶茶色'){
         header("Refresh:1; url=shoes/shoes1.php");
-      } elseif($_SESSION['item'] == 'shoes2'){
+      } elseif($_SESSION['item'] == '【777鞋子系列】 高筒帆布鞋 TW 藍'){
         header("Refresh:1; url=shoes/shoes2.php");
-      } elseif($_SESSION['item'] == 'shoes3'){
+      } elseif($_SESSION['item'] == '【777鞋子系列】 Nike Air Force 1'){
         header("Refresh:1; url=shoes/shoes3.php");
-      } elseif($_SESSION['item'] == 'shoes4'){
+      } elseif($_SESSION['item'] == '【777鞋子系列】 adidas 杜拉姆女生慢跑鞋 黑粉'){
         header("Refresh:1; url=shoes/shoes4.php");
-      } elseif($_SESSION['item'] == 'shoes5'){
+      } elseif($_SESSION['item'] == '【777鞋子系列】 VANS OLD SKOOL PRO基本款'){
         header("Refresh:1; url=shoes/shoes5.php");
-      } elseif($_SESSION['item'] == 'shoes6'){
+      } elseif($_SESSION['item'] == '【777鞋子系列】 PUMA 休閒鞋 Turin II'){
         header("Refresh:1; url=shoes/shoes6.php");
-      } elseif($_SESSION['item'] == 'cloth1'){
+      } elseif($_SESSION['item'] == '【777衣服系列】 T-shirt TW'){
         header("Refresh:1; url=clothes/cloth1.php");
-      } elseif($_SESSION['item'] == 'cloth2'){
+      } elseif($_SESSION['item'] == '【777衣服系列】 T-shirt VANS'){
         header("Refresh:1; url=clothes/cloth2.php");
-      } elseif($_SESSION['item'] == 'cloth3'){
+      } elseif($_SESSION['item'] == '【777衣服系列】 T-shirt adidas'){
         header("Refresh:1; url=clothes/cloth3.php");
-      } elseif($_SESSION['item'] == 'cloth4'){
+      } elseif($_SESSION['item'] == '【777衣服系列】 T-shirt 肌肉衣'){
         header("Refresh:1; url=clothes/cloth4.php");
-      } elseif($_SESSION['item'] == 'cloth5'){
+      } elseif($_SESSION['item'] == '【777衣服系列】 T-shirt NBA'){
         header("Refresh:1; url=clothes/cloth5.php");
-      } elseif($_SESSION['item'] == 'cloth6'){
+      } elseif($_SESSION['item'] == '【777衣服系列】 T-shirt champion'){
         header("Refresh:1; url=clothes/cloth6.php");
       }
     }

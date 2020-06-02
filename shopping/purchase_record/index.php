@@ -11,12 +11,9 @@
 <!DOCTYPE html>
 <html>
 
-<!DOCTYPE html>
-<html>
-
 <head>
   <meta charset="utf-8">
-  <title>777購物網站</title>
+  <title>查看訂單</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -43,7 +40,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.php"> <img src="../img/777.jpg" width="250"
+            <a class="navbar-brand" href="../index.php"> <img src="../img/7777.jpg" width="250"
                 class="heading img-fluid"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,7 +108,7 @@
         <div class="col-12 col-md-6">
           <div class="single_widget_area d-flex mb-30">
             <div class="footer-logo mr-50">
-              <a href="../index.php"><img src="../img/777.jpg" wight="100" height="100" alt=""></a>
+              <a href="../index.php"><img src="../img/7777.jpg" wight="100" height="100" alt=""></a>
             </div>
             <div class="footer_menu">
               <ul>
@@ -119,7 +116,7 @@
                 <li><a href="../sign/index.php">註冊</a></li>
               </ul>
               <ul>
-                <li><a href="../login/index.php">查看訂單</a></li>
+                <li><a href="../purchase_record/index.php">查看訂單</a></li>
                 <li><a href="../login/index.php">登入</a></li>
               </ul>
             </div>
@@ -129,6 +126,9 @@
     </div>
   </footer>
 </body>
+
 <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"
-    aria-hidden="true">
+    aria-hidden="true"><img src="../img/top.jpg" width="250" class="heading img-fluid">
   </i></a>
+
+</html>

@@ -39,7 +39,7 @@
       <div class="row align-items-center">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="../../index.php"> <img src="../../img/777.jpg" width="250"
+            <a class="navbar-brand" href="../../index.php"> <img src="../../img/7777.jpg" width="250"
                 class="heading img-fluid"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,34 +47,30 @@
             </button>
 
             <div class="collapse navbar-collapse main-menu-item justify-content-center" id="navbarSupportedContent">
-              <ul class="navbar-nav">
+            <ul class="navbar-nav">
                 <li class="nav-item active">
                   <a class="nav-link" href="../../index.php">首頁</a>
                 </li>
-                <pre>    </pre>
+                <pre>       </pre>
                 <li class="nav-item">
                   <a class="nav-link" href="../../item/index.php">所有商品</a>
                 </li>
-                <pre>    </pre>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../car/index.php">購物車</a>
-                </li>
-                <pre>    </pre>
+                <pre>       </pre>
                 <li class="nav-item">
                   <a class="nav-link" href="../../sign/index.php">註冊</a>
                 </li>
-                <pre>    </pre>
+                <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="../../login/index.php">登入</a>
+                  <a class="nav-link" href="../../method/logout.php">登出</a>
                 </li>
-                <pre>    </pre>
+                <pre>       </pre>
                 <li class="nav-item">
                   <a class="nav-link" href="../../purchase_record/index.php">查看訂單</a>
                 </li>
               </ul>
             </div>
             <div class="user-login-info">
-              <a href="../../index.php"><img src="../../img/user.svg" wight="30" height="30" alt=""></a>
+              <a href="../../login/index.php"><img src="../../img/user.svg" wight="30" height="30" alt=""></a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="../../car/index.php"><img src="../../img/bag.svg" wight="30" height="30" alt=""></a>
             </div>
@@ -100,24 +96,27 @@
         <div class="col-12 col-md-6">
           <div class="single_widget_area d-flex mb-30">
             <div class="footer-logo mr-50">
-              <a href="../../index.php"><img src="../../img/777.jpg" wight="100" height="100" alt=""></a>
+              <a href="index.php"><img src="../../img/7777.jpg" wight="100" height="100" alt=""></a>
             </div>
             <div class="footer_menu">
               <ul>
-                <li><a href="../../item/index.php">所有商品</a></li>
-                <li><a href="../../sign/index.php">註冊</a></li>
-                <li><a href="../../login/index.php">登入</a></li>
+                <li><a href="item/index.php">所有商品</a></li>
+                <li><a href="sign/index.php">註冊</a></li>
+              </ul>
+              <ul>
+                <li><a href="purchase_record/index.php">查看訂單</a></li>
+                <li><a href="login/index.php">登入</a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </footer>
+  </footer> 
 </body>
 
 <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"
-    aria-hidden="true">
+    aria-hidden="true"><img src="../../img/top.jpg" width="250" class="heading img-fluid">
   </i></a>
 
 </html>

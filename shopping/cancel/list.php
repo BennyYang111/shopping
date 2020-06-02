@@ -11,7 +11,7 @@
     echo '<table border="1"><tr>' 
       . '<td>訂單編號</td>' . '<td>賣家姓名</td>' .  '<td>買家姓名</td>' 
       . '<td>物品名稱</td>' . '<td>數量</td>' . '<td>價錢</td></tr>';
-    while($row = mysqli_fetch_array($result)){
+    while($row = mysqli_fetch_array($result)) {
       echo '<tr><td>' . $row['form_ID'] . '</td><td>' . $row['seller_name'] . '</td><td>' . 
         $row['buyer_name'] . '</td><td>' . $row['item_name'] . '</td><td>' . $row['quantity'] 
         . '</td><td>' . $row['price'] . '</td>';
