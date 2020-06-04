@@ -15,22 +15,30 @@
   $sql = "INSERT INTO buyer(buyer_ID, buyer_name, buyer_address, password)
     VALUES ('$ID', '$name', '$address', '$password')";
 
+  $false = 0;
   if($ID == '' || $name == '' || $address == '' || $password == '' || $pwcheck == '') {
     echo '<font size="10">填入欄位不可為空!</font><br>';
+    $false = 1;
   } elseif(stristr($ID, $searrow['buyer_ID'])) {
     echo '<font size="10">此帳號已有人使用!</font><br>';
+    $false = 1;
   } elseif($pwcheck != $password) {
     echo '<font size="10">密碼確認失敗!</font><br>';
+    $false = 1;
   } elseif(strlen($password) < 8) {
     echo '<font size="10">密碼長度至少需要8位!</font><br>';
+    $false = 1;
   }
   
   if(!(preg_match("/[0-9]{1,}/",$password))) {
     echo '<font size="10">密碼需包含數字!</font><br>';
+    $false = 1;
   }
-  if(!(preg_match("/[a-z]{1,}/",$password)) || !(preg_match("/[A-Z]{1,}/",$password))) {
+  if(!(preg_match("/[a-zA-Z]{1,}/",$password))) {
     echo '<font size="10">密碼需包含英文字母!</font><br>';
-  } else {
+    $false = 1;
+  } 
+  if($false == 0){
     $result = $connect->query($sql);
   }
   

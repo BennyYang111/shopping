@@ -1,17 +1,22 @@
 <?php
+  //使用session前要有的start
   session_start();
-  if(isset($_SESSION['buyer_ID'])) {
-    echo '<font size="5">登入狀態下無法註冊帳號!</font><br>';
-    header("Refresh:2; url=../index.php");
+  //判斷$_SESSION['buyer_ID']有沒有人登入
+  if(!isset($_SESSION['buyer_ID'])){
+  } else {
+    echo '<font size="5">使用者:' . $_SESSION['buyer_ID'] . '</font>';
   }
 ?>
 
 <!DOCTYPE html>
 <html>
 
+<!DOCTYPE html>
+<html>
+
 <head>
   <meta charset="utf-8">
-  <title>註冊帳號</title>
+  <title>777購物網站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,56 +34,6 @@
   <link rel="stylesheet" href="../css/bitnami.css">
   <link rel="stylesheet" href="../css/commodity.css">
 
-  <script>
-    function submit() {
-      let name = document.getElementById('input-name');
-      let account = document.getElementById('input-account');
-      let code = document.getElementById('input-code');
-      let phone = document.getElementById('input-phone');
-      let email = document.getElementById('input-email');
-      let error4 = document.getElementById('error-msg4');
-      let error1 = document.getElementById('error-msg1');
-      let error2 = document.getElementById('error-msg2');
-      let error3 = document.getElementById('error-msg3');
-      let error5 = document.getElementById('error-msg5');
-
-      if (name.value != "" && phone.value != "" && email.value != "" && account.value != "" && code.value != "") {
-        location.href = "login/login.html";
-        alert('感謝您的註冊!!');
-      }
-
-      if (name.value == "") {
-        error1.innerHTML = "<h6>※姓名不可為空白</h6>";
-      }
-      else {
-        error1.innerHTML = "";
-      }
-      if (phone.value == "") {
-        error2.innerHTML = "<h6>※手機不可為空白</h6>";
-      }
-      else {
-        error2.innerHTML = "";
-      }
-      if (email.value == "") {
-        error3.innerHTML = "<h6>※信箱不可為空白</h6>";
-      }
-      else {
-        error3.innerHTML = "";
-      }
-      if (account.value == "") {
-        error4.innerHTML = "<h6>※帳號不可為空白</h6>";
-      }
-      else {
-        error4.innerHTML = "";
-      }
-      if (code.value == "") {
-        error5.innerHTML = "<h6>※密碼不可為空白</h6>";
-      }
-      else {
-        error5.innerHTML = "";
-      }
-    }
-  </script>
 </head>
 
 <body>
@@ -106,7 +61,7 @@
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.php">註冊</a>
+                  <a class="nav-link" href="../sign/index.php">註冊</a>
                 </li>
                 <pre>       </pre>
                 <li class="nav-item">
@@ -128,48 +83,26 @@
       </div>
     </div>
   </header>
+  <br><br><br>
 
   <center>
-    <h1 class="title">註冊 777購物網站帳號</h1>
+    <h1 class="title">購買紀錄</h1>
   </center>
 
-  <form class="" action="sign.php" method="post">
+  <form class="" action="cancel.php" method="post">
     <div class="box">
-      <div class="box-head">
-        <h3>用戶基本資料</h3>
-      </div>
-      <div class="well">
-        <a>姓名:</a>
-        <input type="text" id="input-name" name="name" class="form-control" style="width: 400px;" placeholder="請填入真實姓名">
-        <a>地址:</a>
-        <input type="text" id="input-name" name="address" class="form-control" style="width: 400px;"
-          placeholder="請填入地址">
-        <small id="error-msg1" style="color: red;"></small>
-        <small id="error-msg2" style="color: red;"></small>
-        <small id="error-msg3" style="color: red;"></small>
-      </div>
-      <div class="box-head">
-        <h3>設定帳號密碼</h3>
-      </div>
-      <div class="well">
-        <a>帳號:</a>
-        <input type="text" id="input-account" name="account" class="form-control" style="width: 400px;"
-          placeholder="輸入註冊帳號">
-        <a>密碼:</a>
-        <input type="password" id="input-code" name="password" class="form-control" style="width: 400px;"
-          placeholder="輸入密碼">
-        <a>再次輸入密碼:</a>
-        <input type="password" id="input-code" name="pwcheck" class="form-control" style="width: 400px;"
-          placeholder="再次輸入密碼">
-        <small id="error-msg4" style="color: red;"></small>
-        <small id="error-msg5" style="color: red;"></small>
-      </div>
+      <center>
+        <div class="box-head">
+          <h3>購物清單</h3>
+        </div>
+        <div class="well"> 
+          <font size="5"><?php require_once "list.php"; ?></font><br>
+          <a>選擇要取消的ID： </a><input type="text" name="ID" value="" placeholder="輸入ID"><br><br>
+          <input type="submit" name="MyHead" value="確認">
+        </div>
+      </center>
     </div>
-    <center>
-      <button type="button" class="btn btn-primary" onclick="location.href='../index.php'">回到首頁</button>
-      <button type="button" class="btn btn-primary" onclick="submit()">送出</button>
-    </center>
-  </form><br><br><br>
+  </form>
 
   <footer class="footer_area clearfix">
     <div class="container">
@@ -185,7 +118,7 @@
                 <li><a href="../sign/index.php">註冊</a></li>
               </ul>
               <ul>
-                <li><a href="../purchase_record/index.php">查看訂單</a></li>
+                <li><a href="../login/index.php">查看訂單</a></li>
                 <li><a href="../login/index.php">登入</a></li>
               </ul>
             </div>
@@ -194,11 +127,7 @@
       </div>
     </div>
   </footer>
-
 </body>
-
 <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"
     aria-hidden="true"><img src="../img/top.jpg" width="250" class="heading img-fluid">
   </i></a>
-
-</html>

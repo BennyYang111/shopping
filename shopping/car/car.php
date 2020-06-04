@@ -35,7 +35,6 @@
       $prow = $presult->fetch_assoc();
     }
     $ID = $prow['ID'] + 1;
-
     for ($i = 0 ;$i < $_SESSION['form_quantity'] ;$i++ ) {
       $ID = $ID - 1;
 

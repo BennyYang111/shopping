@@ -84,34 +84,36 @@
   </center>
 
   <div class="box">
-    <div class="box-head">
-      <h3>清單</h3>
-    </div>
-    <div class="well">
-      <font size="5"><?php require_once "list.php"; ?></font>
-    </div>
-  </div>
-
-  <form class="" action="car.php" method="post">
-    <div class="box">
+    <center>
       <div class="box-head">
-        <h3>付款方式及寄送地址</h3>
+        <h3>購物清單</h3>
       </div>
       <div class="well">
-        <a>選擇付款方式 ： </a><input type="radio" name="pay" value="atm">ATM轉帳
-        <input type="radio" name="pay" value="card">信用卡
-        <input type="radio" name="pay" value="cash">貨到付款<br><br>
-        <a>使用信用卡付費請填寫(如果不是則空白) ： </a><input type="text" id="input-code" name="number" class="form-control"
-          style="width: 400px;" placeholder="輸入信用卡號">
-        <a>請輸入寄送地址 ： </a><input type="text" id="input-code" name="address" class="form-control" style="width: 400px;"
-          placeholder="輸入寄送地址">
+        <font size="5"><?php require_once "list.php"; ?></font><br>
+        <button type="button" class="btn btn-primary" onclick="location.href='index_cancel.php'">移除商品</button>
       </div>
-    </div>
-    <center>
+    </center>
+  </div>
+  <center>
+    <form class="" action="car.php" method="post">
+      <div class="box">
+        <div class="box-head">
+          <h3>付款方式及寄送地址</h3>
+        </div>
+        <div class="well">
+          <a>選擇付款方式 ： </a><input type="radio" name="pay" value="atm">ATM轉帳
+          <input type="radio" name="pay" value="card">信用卡
+          <input type="radio" name="pay" value="cash">貨到付款<br><br>
+          <a>使用信用卡付費請填寫(如果不是則空白) ： </a><input type="text" id="input-code" name="number" class="form-control"
+            style="width: 400px;" placeholder="輸入信用卡號">
+          <a>請輸入寄送地址 ： </a><input type="text" id="input-code" name="address" class="form-control" style="width: 400px;"
+            placeholder="輸入寄送地址">
+        </div>
+      </div>
       <button type="button" class="btn btn-primary" onclick="location.href='../index.php'">回到首頁</button>
       <button type="button" class="btn btn-primary" onclick="submit()">下單</button>
-    </center>
-  </form>
+    </form>
+  </center>
   <br><br><br>
 
   <footer class="footer_area clearfix">

@@ -91,16 +91,16 @@
 
   <form class="" action="cancel.php" method="post">
     <div class="box">
-      <div class="box-head">
-        <h3>清單</h3>
-      </div>
-      <div class="well">
-        <center>
-          <font size="5"><?php require_once "list.php"; ?></font><br>
-          <a>選擇要取消的訂單編號： </a><input type="text" name="ID" value="" placeholder="輸入訂單編號"><br><br>
-          <input type="submit" name="MyHead" value="確認">
-        </center>
-      </div>
+      <center>
+        <div class="box-head">
+          <h3>清單</h3>
+        </div>
+        <div class="well">
+            <font size="5"><?php require_once "list.php"; ?></font><br>
+            <a>選擇要取消的訂單編號： </a><input type="text" name="ID" value="" placeholder="輸入訂單編號"><br><br>
+            <input type="submit" name="MyHead" value="確認">
+        </div>
+      </center>
     </div>
   </form>
 
