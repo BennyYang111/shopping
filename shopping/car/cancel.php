@@ -42,11 +42,11 @@
       if($result) {
         $del_recordresult = $connect->query($del_recordsql);
       }
-      /*if($del_recordresult) {
-        echo '<font size="10">成功刪除購物紀錄!</font><br>';
+      if($del_recordresult) {
+        echo '<font size="10">刪除成功!</font><br>';
       } else {
-        echo '<font size="10">刪除購物紀錄失敗!</font><br>';
-      }*/
+        echo '<font size="10">刪除失敗!</font><br>';
+      }
 
       $quantity = $row['quantity'];
       $item_ID = $row['item_ID'];
