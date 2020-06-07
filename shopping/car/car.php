@@ -34,18 +34,21 @@
     if ($presult->num_rows > 0) {
       $prow = $presult->fetch_assoc();
     }
-    $ID = $prow['ID'] + 1;
+    $ID = $prow['ID'];
     for ($i = 0 ;$i < $_SESSION['form_quantity'] ;$i++ ) {
-      $ID = $ID - 1;
-
-      $form_ID = $ID + 1000000;
 
       //找到purchase_record裡面符合ID='$ID'條件的項
-      $sql = "SELECT * FROM purchase_record WHERE ID='$ID'";
-      $result = $connect->query($sql);
-      if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-      }
+      do {
+        $sql = "SELECT * FROM purchase_record WHERE ID='$ID'";
+        $result = $connect->query($sql);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+        } else {
+          $ID = $ID - 1;
+        }
+      }while($result->num_rows <= 0);
+
+      $form_ID = $ID + 1000000;
       $buyer_ID = $row['buyer_ID'];
       $seller_ID = $row['seller_ID'];
       $item_ID = $row['item_ID'];
@@ -124,6 +127,7 @@
           echo '<font size="10">下單失敗!</font><br>';
         }
       }
+      $ID = $ID - 1;
     }
   }
 
