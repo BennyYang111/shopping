@@ -46,7 +46,7 @@ password varchar(200) NOT NULL COMMENT '密碼'
 
 create table stock(
 item_ID int(200) primary key NOT NULL COMMENT '物品ID',
-seller_ID varchar(200) primary key NOT NULL COMMENT '賣家ID',
+seller_ID varchar(200) NOT NULL COMMENT '賣家ID',
 seller_name varchar(200) NOT NULL COMMENT '賣家姓名',
 item_name varchar(200) NOT NULL COMMENT '物品名稱',
 quantity int(200) NOT NULL COMMENT '數量',
