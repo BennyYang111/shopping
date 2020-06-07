@@ -71,9 +71,9 @@
               </ul>
             </div>
             <div class="user-login-info">
-              <a href="../login/index.php"><img src="../img/user.svg" wight="30" height="30" alt=""></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="../car/index.php"><img src="../img/bag.svg" wight="30" height="30" alt=""></a>
+              <a href="../login/index.php"><img src="../img/user.svg" wight="30" height="30" alt="" title="登入"></a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="../car/index.php"><img src="../img/bag.svg" wight="30" height="30" alt="" title="購物車"></a>
             </div>
           </nav>
         </div>

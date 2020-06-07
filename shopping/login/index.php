@@ -94,9 +94,9 @@
               </ul>
             </div>
             <div class="user-login-info">
-              <a href="index.php"><img src="../img/user.svg" wight="30" height="30" alt=""></a>
+              <a href="index.php"><img src="../img/user.svg" wight="30" height="30" alt="" title="登入"></a>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="../car/index.php"><img src="../img/bag.svg" wight="30" height="30" alt=""></a>
+              <a href="../car/index.php"><img src="../img/bag.svg" wight="30" height="30" alt="" title="登入"></a>
             </div>
           </nav>
         </div>
